@@ -49,7 +49,7 @@ import projects.scrolltab.R;
 public class top_national_daily extends AppCompatActivity {
     ImageView output;
     ImageLoadTask t;
-    String loginURL = "http://www.airworldservice.org/english/wp-json/wp/v2/posts?filter[category_name]=top-national-news-daily";
+    String loginURL;
     // List <String> data ;
     String data;
     List<String> html = new ArrayList<String>();
@@ -69,8 +69,9 @@ public class top_national_daily extends AppCompatActivity {
         setContentView(R.layout.activity_top_national_daily);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Bundle bun=getIntent().getBundleExtra("url");
 
-       // Toast.makeText(this,"pos is :"+pos,Toast.LENGTH_LONG).show();
+        loginURL=bun.getString("urls");
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(this.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.content_top_national_daily, null, false);
         requestQueue = Volley.newRequestQueue(this);
